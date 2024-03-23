@@ -40,5 +40,24 @@
             "Phone": "7776 861386",
             "Address": ""
         }
+    },
+    {
+        "User Information": {
+            "Name": "mera naam Harikrishnan hai",
+            "Phone": "77768 6138 6",
+            "Address": "Wi-Fi common"
+        }
+    },
+    {
+        "IT Desk Questions": {
+            "What is the issue you are experiencing?": "laptop Fat Gaya bhai",
+            "When did the issue start?": "2 din pahle",
+            "Have you tried any troubleshooting steps?": "Nahin abhi tak To Nahin kiye",
+            "What is your computer's operating system?": "window",
+            "Any additional information you would like to provide?": "sorry window Nahin Khidki to"
+        }
+    },
+    {
+        "Gemini LLM": "**Possible Laptop Issues:**\n\n* **Overheating:** High temperatures can cause performance issues and damage components.\n* **Malware infection:** Viruses and spyware can slow down the laptop and cause various problems.\n* **Hard drive failure:** A faulty hard drive can lead to data loss and system instability.\n* **RAM (memory) issues:** Insufficient or defective RAM can cause sluggish performance and crashes.\n* **Graphics card problems:** A faulty graphics card can result in display issues, corrupted graphics, and performance drops.\n* **Software conflicts:** Incompatibility or outdated software can cause errors and performance problems.\n* **Battery degradation:** Worn-out batteries can limit laptop usage and impact performance.\n* **Motherboard issues:** A malfunctioning motherboard can affect multiple components and cause severe performance issues.\n* **Overclocking:** Aggressive overclocking can push components beyond their limits, causing instability and performance degradation.\n* **Physical damage:** Dropping or damaging the laptop can lead to internal hardware problems.\n\n**Troubleshooting Tips:**\n\n* **Check for overheating:** Place the laptop on a flat surface and ensure proper airflow. Clean any dust or debris from vents.\n* **Run a malware scan:** Use an antivirus or anti-malware software to detect and remove potential threats.\n* **Test the hard drive:** Use built-in diagnostic tools or third-party software to check the health of the hard drive.\n* **Diagnose RAM issues:** Run a memory diagnostic test to identify any faulty RAM modules.\n* **Update graphics drivers:** Install the latest drivers for your graphics card.\n* **Resolve software conflicts:** Uninstall or update incompatible software and ensure all necessary drivers are installed.\n* **Test battery health:** Use built-in tools or third-party software to check battery performance.\n* **Seek professional repair:** For complex issues or physical damage, it's recommended to consult a qualified technician."
     }
 ]
