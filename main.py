@@ -45,6 +45,7 @@ def speech_to_text():
         with sr.Microphone() as source:
             print("Please say something...")
             recognizer.adjust_for_ambient_noise(source)
+            recognizer.pause_threshold = 0.7
             audio = recognizer.listen(source)
 
         try:
@@ -90,17 +91,21 @@ def speech_to_text():
         # Collect user information with Gemini LLM
         speak("Hello! Please provide your name.")
         output_text.insert(tk.END, "Assistant: " + "Hello! Please provide your name." + "\n\n")
+        output_text.see(tk.END)
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "User: " + user_input + "\n\n")
             output_text.see(tk.END)
             user_info["Name"] = user_input
             
-            
 
         speak("Great! Now, please provide your phone number.")
+        output_text.insert(tk.END, "Assistant: " + "Great! Now, please provide your phone number." + "\n\n")
+        output_text.see(tk.END)
         user_input = convert_speech_to_text()
         if user_input is not None:
+            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.see(tk.END)
             user_info["Phone"] = user_input
 
         speak("Thank you! Finally, please provide your address.")
