@@ -9,7 +9,7 @@ genai.configure(api_key="AIzaSyDiHIeAsfCOY2bhV_S1bXk4Y966xFay4s8")  # Replace wi
 model = genai.GenerativeModel('gemini-pro')
 
 def generate_response(input_text):
-    response = model.generate_content(input_text)
+    response = model.generate_content(input_text + ", And give the response under 300-400 characters")
     return response.text
 
 def speech_to_text():
