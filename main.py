@@ -6,13 +6,19 @@ import speech_recognition as sr
 import pyttsx3
 import json
 import os
+import json
+
+MAIN_DOMAIN="Manufacturing"
+
+with open('./data/data.json', 'r') as domain:
+    domainData = json.load(domain)
 
 # Configure and initialize Gemini LLM
 genai.configure(api_key="AIzaSyDiHIeAsfCOY2bhV_S1bXk4Y966xFay4s8")  # Replace with your Gemini LLM API key
 model_gemini = genai.GenerativeModel('gemini-pro')
 
 # File to store conversation history
-conversation_file = "conversation_history.json"
+conversation_file = "./data/conversation_history.json"
 
 def generate_gemini_response(prompt):
     response = model_gemini.generate_content(prompt)  # Corrected method name
@@ -77,9 +83,14 @@ def speech_to_text():
 
         # Collect user information with Gemini LLM
         speak("Hello! Please provide your name.")
+        output_text.insert(tk.END, "Assistant: " + "Hello! Please provide your name." + "\n\n")
         user_input = convert_speech_to_text()
         if user_input is not None:
+            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.see(tk.END)
             user_info["Name"] = user_input
+            
+            
 
         speak("Great! Now, please provide your phone number.")
         user_input = convert_speech_to_text()
@@ -97,16 +108,9 @@ def speech_to_text():
         # Proceed to Gemini LLM for IT desk questions
         speak("Thank you for providing your information. Now, let's proceed to the IT desk questionnaire.")
         speak("Please answer the following questions.")
-        it_desk_questions = [
-            "What is the issue you are experiencing?",
-            "When did the issue start?",
-            "Have you tried any troubleshooting steps?",
-            "What is your computer's operating system?",
-            "Any additional information you would like to provide?"
-        ]
 
         it_desk_answers = {}
-        for question in it_desk_questions:
+        for question in domainData[MAIN_DOMAIN]:
             speak(question)
             user_input = convert_speech_to_text()
             if user_input is not None:
@@ -118,28 +122,38 @@ def speech_to_text():
         # Display and speak Gemini LLM responses for IT desk questions
         for question, answer in it_desk_answers.items():
             gemini_response = generate_gemini_response(question + " " + answer)
+            gemini_response_formated = gemini_response.replace("*", "")
             if gemini_response is not None:
                 update_dataset({"Gemini LLM": gemini_response})
                 output_text.insert(tk.END, "IT Question: " + question + "\n")
                 output_text.insert(tk.END, "User Answer: " + answer + "\n")
-                output_text.insert(tk.END, "Gemini LLM Response: " + gemini_response + "\n")
+                output_text.insert(tk.END, "Gemini LLM Response: " + gemini_response_formated + "\n")
                 output_text.see(tk.END)
-                speak(gemini_response)
+                speak(gemini_response_formated)
 
         speak("Thank you for answering the questions. We will assist you with the issue shortly.")
 
     # Create UI
     root = tk.Tk()
     root.title("Gemini LLM Voice Interaction")
+    
+    output_text = scrolledtext.ScrolledText(root, width=60, height=20)
+    output_text.grid(row=0, columnspan=3)
 
     start_button = tk.Button(root, text="Start Listening", command=on_start_button)
-    start_button.pack(pady=10)
+    start_button.grid(row=1, column=0, pady=20)
 
     stop_button = tk.Button(root, text="Stop Listening", command=on_stop_button, state='disabled')
-    stop_button.pack(pady=5)
+    stop_button.grid(row=2, column=0, pady=(0, 20))
 
-    output_text = scrolledtext.ScrolledText(root, width=60, height=20)
-    output_text.pack(padx=10, pady=10)
+    start_button = tk.Button(root, text="IT Help Desk", command=lambda: setattr(root, 'MAIN_DOMAIN', "IT"))
+    start_button.grid(row=1, column=1, pady=20)
+
+    stop_button = tk.Button(root, text="Manufacturing", command=lambda: setattr(root, 'MAIN_DOMAIN', "Manufacturing"))
+    stop_button.grid(row=1, column=2, pady=20)
+    
+    start_button = tk.Button(root, text="Network", command=lambda: setattr(root, 'MAIN_DOMAIN', "Network"))
+    start_button.grid(row=2, column=1, pady=(0, 20))
 
     # Start the GUI event loop
     root.mainloop()
