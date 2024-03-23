@@ -9,6 +9,7 @@ import os
 import json
 
 MAIN_DOMAIN=""
+LANG=""
 
 with open('./data/data.json', 'r') as domain:
     domainData = json.load(domain)
@@ -49,13 +50,13 @@ def speech_to_text():
             audio = recognizer.listen(source)
 
         try:
-            text = recognizer.recognize_google(audio)
+            text = recognizer.recognize_google(audio, language="hi-IN")
             return text
         except sr.UnknownValueError:
             print("Sorry, could not understand audio.")
         except sr.RequestError as e:
             print(f"Sorry, an error occurred: {e}")
-
+    
     def speak(text):
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
@@ -66,19 +67,19 @@ def speech_to_text():
         engine.runAndWait()
 
     def on_start_button():
-        start_button['state'] = 'disabled'
-        stop_button['state'] = 'normal'
+        # start_button['state'] = 'disabled'
+        # stop_button['state'] = 'normal'
         threading.Thread(target=start_listening).start()
-
-    def on_stop_button():
-        stop_button['state'] = 'disabled'
-        start_button['state'] = 'normal'
         
     def onClickAction(domain):
         # setattr(root, 'MAIN_DOMAIN', domain)
         global MAIN_DOMAIN
         MAIN_DOMAIN = domain
         on_start_button()
+        
+    def changeLanguage(lang):
+        global LANG
+        LANG = lang
 
     def start_listening():
         # Initialize variables for user information
@@ -152,17 +153,23 @@ def speech_to_text():
     output_text = scrolledtext.ScrolledText(root, width=60, height=20)
     output_text.grid(row=0, columnspan=4)
 
-    start_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
-    start_button.grid(row=1, column=0, pady=20)
+    it_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
+    it_button.grid(row=1, column=0, pady=20)
 
-    stop_button = tk.Button(root, text="Manufacturing", command=lambda: onClickAction("Manufacturing"))
-    stop_button.grid(row=1, column=1, pady=20)
+    manf_button = tk.Button(root, text="Manufacturing", command=lambda: onClickAction("Manufacturing"))
+    manf_button.grid(row=1, column=1, pady=20)
     
-    start_button = tk.Button(root, text="Network", command=lambda: onClickAction("IT"))
-    start_button.grid(row=1, column=2, pady=20)
+    network_button = tk.Button(root, text="Network", command=lambda: onClickAction("IT"))
+    network_button.grid(row=1, column=2, pady=20)
     
-    start_button = tk.Button(root, text="Service", command=lambda: onClickAction("IT"))
-    start_button.grid(row=1, column=3, pady=20)
+    service_button = tk.Button(root, text="Service", command=lambda: onClickAction("IT"))
+    service_button.grid(row=1, column=3, pady=20)
+
+    eng_button = tk.Button(root, text="English", command=lambda: changeLanguage("en-US"))
+    eng_button.grid(row=2, columnspan=2, pady=20)
+    
+    hindi_button = tk.Button(root, text="Hindi", command=lambda: changeLanguage("hi-IN")) 
+    hindi_button.grid(row=2, column=2, columnspan=2, pady=20)
 
     # Start the GUI event loop
     root.mainloop()
