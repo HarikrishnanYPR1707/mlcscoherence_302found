@@ -8,7 +8,7 @@ import json
 import os
 import json
 
-MAIN_DOMAIN="Manufacturing"
+MAIN_DOMAIN=""
 
 with open('./data/data.json', 'r') as domain:
     domainData = json.load(domain)
@@ -72,6 +72,12 @@ def speech_to_text():
     def on_stop_button():
         stop_button['state'] = 'disabled'
         start_button['state'] = 'normal'
+        
+    def onClickAction(domain):
+        # setattr(root, 'MAIN_DOMAIN', domain)
+        global MAIN_DOMAIN
+        MAIN_DOMAIN = domain
+        on_start_button()
 
     def start_listening():
         # Initialize variables for user information
@@ -110,6 +116,7 @@ def speech_to_text():
         speak("Please answer the following questions.")
 
         it_desk_answers = {}
+        print(MAIN_DOMAIN)
         for question in domainData[MAIN_DOMAIN]:
             speak(question)
             user_input = convert_speech_to_text()
@@ -135,7 +142,7 @@ def speech_to_text():
 
     # Create UI
     root = tk.Tk()
-    root.title("Gemini LLM Voice Interaction")
+    root.title("CVA - 302FOUND")
     
     output_text = scrolledtext.ScrolledText(root, width=60, height=20)
     output_text.grid(row=0, columnspan=3)
@@ -146,13 +153,13 @@ def speech_to_text():
     stop_button = tk.Button(root, text="Stop Listening", command=on_stop_button, state='disabled')
     stop_button.grid(row=2, column=0, pady=(0, 20))
 
-    start_button = tk.Button(root, text="IT Help Desk", command=lambda: setattr(root, 'MAIN_DOMAIN', "IT"))
+    start_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
     start_button.grid(row=1, column=1, pady=20)
 
-    stop_button = tk.Button(root, text="Manufacturing", command=lambda: setattr(root, 'MAIN_DOMAIN', "Manufacturing"))
+    stop_button = tk.Button(root, text="Manufacturing", command=lambda: onClickAction("Manufacturing"))
     stop_button.grid(row=1, column=2, pady=20)
     
-    start_button = tk.Button(root, text="Network", command=lambda: setattr(root, 'MAIN_DOMAIN', "Network"))
+    start_button = tk.Button(root, text="Network", command=lambda: onClickAction("IT"))
     start_button.grid(row=2, column=1, pady=(0, 20))
 
     # Start the GUI event loop
