@@ -53,7 +53,7 @@ def speech_to_text():
             if user_input:
                 response = generate_response(user_input)
                 output_text.insert(tk.END, "User: " + user_input + "\n")
-                output_text.insert(tk.END, "Gemini: " + response + "\n")
+                output_text.insert(tk.END, "Assistant: " + response + "\n")
                 output_text.see(tk.END)
                 speak(response)
 
