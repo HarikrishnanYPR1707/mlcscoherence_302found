@@ -152,20 +152,14 @@ def speech_to_text():
     output_text = scrolledtext.ScrolledText(root, width=60, height=20)
     output_text.grid(row=0, columnspan=3)
 
-    start_button = tk.Button(root, text="Start Listening", command=on_start_button)
+    start_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
     start_button.grid(row=1, column=0, pady=20)
 
-    stop_button = tk.Button(root, text="Stop Listening", command=on_stop_button, state='disabled')
-    stop_button.grid(row=2, column=0, pady=(0, 20))
-
-    start_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
-    start_button.grid(row=1, column=1, pady=20)
-
     stop_button = tk.Button(root, text="Manufacturing", command=lambda: onClickAction("Manufacturing"))
-    stop_button.grid(row=1, column=2, pady=20)
+    stop_button.grid(row=1, column=1, pady=20)
     
     start_button = tk.Button(root, text="Network", command=lambda: onClickAction("IT"))
-    start_button.grid(row=2, column=1, pady=(0, 20))
+    start_button.grid(row=1, column=2, pady=20)
 
     # Start the GUI event loop
     root.mainloop()
