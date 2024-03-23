@@ -67,12 +67,12 @@ def speech_to_text():
     root.title("Gemini Voice Interaction")
 
     start_button = tk.Button(root, text="Start Listening", command=on_start_button)
-    start_button.pack(pady=10)
+    start_button.pack(padx=10,pady=10)
 
     stop_button = tk.Button(root, text="Stop Listening", command=on_stop_button, state='disabled')
-    stop_button.pack(pady=5)
+    stop_button.pack(padx=10, pady=10)
 
-    output_text = scrolledtext.ScrolledText(root, width=60, height=20)
+    output_text = scrolledtext.ScrolledText(root, width=100, height=20)
     output_text.pack(padx=10, pady=10)
 
     # Start the GUI event loop
