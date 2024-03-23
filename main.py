@@ -150,7 +150,7 @@ def speech_to_text():
     root.title("CVA - 302FOUND")
     
     output_text = scrolledtext.ScrolledText(root, width=60, height=20)
-    output_text.grid(row=0, columnspan=3)
+    output_text.grid(row=0, columnspan=4)
 
     start_button = tk.Button(root, text="IT Help Desk", command=lambda: onClickAction("IT"))
     start_button.grid(row=1, column=0, pady=20)
@@ -160,6 +160,9 @@ def speech_to_text():
     
     start_button = tk.Button(root, text="Network", command=lambda: onClickAction("IT"))
     start_button.grid(row=1, column=2, pady=20)
+    
+    start_button = tk.Button(root, text="Service", command=lambda: onClickAction("IT"))
+    start_button.grid(row=1, column=3, pady=20)
 
     # Start the GUI event loop
     root.mainloop()
