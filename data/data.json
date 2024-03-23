@@ -12,5 +12,19 @@
     "When was the product purchased and what is its warranty status?",
     "Are there any visible damages or defects?",
     "Is there a need for on-site inspection or can the issue be resolved remotely"
+  ],
+  "Network": [
+    "Is the issue affecting the entire network or specific parts of it?",
+    "Have there been any recent changes or updates to the network configuration?",
+    "Are other users or devices experiencing similar issues?",
+    "Have IP addresses, DNS settings, and other network configurations been verified?",
+    "Are there any error messages or logs indicating the cause of the issue?"
+  ],
+  "Service": [
+    "What specific problem or issue is being encountered by the service users?",
+    "Is the issue affecting all users or only specific users or segments of the service?",
+    "Have there been any recent changes or updates to the service or infrastructure?",
+    "Is there any error message or code associated with the issue?",
+    "Have user permissions or access controls been reviewed and verified?"
   ]
 }
