@@ -5,6 +5,7 @@ import google.generativeai as genai
 import speech_recognition as sr
 import pyttsx3
 import json
+import gtts
 import os
 import json
 
@@ -50,13 +51,13 @@ def speech_to_text():
             audio = recognizer.listen(source)
 
         try:
-            text = recognizer.recognize_google(audio, language="hi-IN")
+            text = recognizer.recognize_google(audio)
             return text
         except sr.UnknownValueError:
             print("Sorry, could not understand audio.")
         except sr.RequestError as e:
             print(f"Sorry, an error occurred: {e}")
-    
+
     def speak(text):
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
@@ -110,8 +111,12 @@ def speech_to_text():
             user_info["Phone"] = user_input
 
         speak("Thank you! Finally, please provide your address.")
+        output_text.insert(tk.END, "Assistant: " + "Thank you! Finally, please provide your address." + "\n\n")
+        output_text.see(tk.END)
         user_input = convert_speech_to_text()
         if user_input is not None:
+            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.see(tk.END)
             user_info["Address"] = user_input
 
         # Store user information in conversation history
@@ -119,13 +124,21 @@ def speech_to_text():
 
         # Proceed to Gemini LLM for IT desk questions
         speak("Thank you for providing your information. Now, let's proceed to the IT desk questionnaire.")
+        output_text.insert(tk.END, "Assistant: " + "Thank you for providing your information. Now, let's proceed to the IT desk questionnaire." + "\n\n")
+        output_text.see(tk.END)
         speak("Please answer the following questions.")
+        output_text.insert(tk.END, "Assistant: " + "Please answer the following questions." + "\n\n")
+        output_text.see(tk.END)
 
         it_desk_answers = {}
         print(MAIN_DOMAIN)
         for question in domainData[MAIN_DOMAIN]:
             speak(question)
+            output_text.insert(tk.END, "Assistant: " + question + "\n\n")
+            output_text.see(tk.END)
             user_input = convert_speech_to_text()
+            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.see(tk.END)
             if user_input is not None:
                 it_desk_answers[question] = user_input
 
