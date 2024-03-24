@@ -5,7 +5,8 @@ import google.generativeai as genai
 import speech_recognition as sr
 import pyttsx3
 import json
-import gtts
+from gtts import gTTS
+from googletrans import Translator
 import os
 import json
 
@@ -21,6 +22,31 @@ model_gemini = genai.GenerativeModel('gemini-pro')
 
 # File to store conversation history
 conversation_file = "./data/conversation_history.json"
+
+
+def translate_to_hindi(text):
+    translator = Translator()
+    translated = translator.translate(text, src='en', dest='hi')
+    return translated.text
+
+def generate_hindi_audio(text):
+    # Specify language (Hindi)
+    language = 'hi'
+
+    # Create gTTS object with the text and language
+    tts = gTTS(text=text, lang=language, slow=False)
+
+    # Save the audio to a file
+    tts.save("output.mp3")
+
+    # Specify the path to the audio file
+    audio_file_path = r"\./output\.mp3"
+    
+    # Construct the command with proper escaping
+    # command = f'Start-Process -FilePath "{audio_file_path}" -Wait -WindowStyle Minimized'
+    command ="start output.mp3 -WindowStyle Hidden"
+
+    os.system(command)
 
 def generate_gemini_response(prompt):
     response = model_gemini.generate_content(prompt)  # Corrected method name
@@ -93,7 +119,14 @@ def speech_to_text():
         # Collect user information with Gemini LLM
         output_text.insert(tk.END , "ASSISTANT: " + "Hello! Please provide your name." + "\n\n")
         output_text.see(tk.END)
-        speak("Hello! Please provide your name.")
+        
+        if LANG == "hin":
+            hindi_op = translate_to_hindi("Hello! Please provide your name.")
+            generate_hindi_audio(hindi_op)
+            os.system("rm .\output.mp3")
+        else:
+            speak("Hello! Please provide your name.")
+            
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "USER: " + user_input + "\n\n")
@@ -103,7 +136,14 @@ def speech_to_text():
 
         output_text.insert(tk.END, "ASSISTANT: " + "Great! Now, please provide your phone number." + "\n\n")
         output_text.see(tk.END)
-        speak("Great! Now, please provide your phone number.")
+        
+        if LANG == "hin":
+            hindi_op = translate_to_hindi("Great! Now, please provide your phone number.")
+            generate_hindi_audio(hindi_op)
+            os.system("rm .\output.mp3")
+        else:
+            speak("Great! Now, please provide your phone number.")
+            
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "USER: " + user_input + "\n\n")
@@ -112,7 +152,14 @@ def speech_to_text():
 
         output_text.insert(tk.END, "ASSISTANT: " + "Thank you! Finally, please provide your address." + "\n\n")
         output_text.see(tk.END)
-        speak("Thank you! Finally, please provide your address.")
+        
+        if LANG == "hin":
+            hindi_op = translate_to_hindi("Thank you! Finally, please provide your address.")
+            generate_hindi_audio(hindi_op)
+            os.system("rm .\output.mp3")
+        else:
+            speak("Thank you! Finally, please provide your address.")
+            
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "USER: " + user_input + "\n\n")
@@ -123,18 +170,35 @@ def speech_to_text():
         update_dataset({"User Information": user_info})
 
         # Proceed to Gemini LLM for IT desk questions
-        output_text.insert(tk.END, "ASSISTANT: " + "Thank you for providing your information. Now, let's proceed to the IT desk questionnaire." + "\n\n")
+        output_text.insert(tk.END, "ASSISTANT: " + f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire." + "\n\n")
         output_text.see(tk.END)
-        speak(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
+        
+        if LANG == "hin":
+            hindi_op = translate_to_hindi(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
+            generate_hindi_audio(hindi_op)
+            os.system("rm .\output.mp3")
+        else:
+            speak(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
 
         output_text.insert(tk.END, "ASSISTANT: " + "Please answer the following questions." + "\n\n")
         output_text.see(tk.END)
-        speak("Please answer the following questions.")
+        
+        if LANG == "hin":
+            hindi_op = translate_to_hindi("Please answer the following questions.")
+            generate_hindi_audio(hindi_op)
+            os.system("rm .\output.mp3")
+        else:
+            speak("Please answer the following questions.")
 
         it_desk_answers = {}
         print(MAIN_DOMAIN)
         for question in domainData[MAIN_DOMAIN]:
-            speak(question)
+            if LANG == "hin":
+                hindi_op = translate_to_hindi(question)
+                generate_hindi_audio(hindi_op)
+                os.system("rm .\output.mp3")
+            else:
+                speak(question)
             output_text.insert(tk.END, "ASSISTANT: " + question + "\n\n")
             output_text.see(tk.END)
             user_input = convert_speech_to_text()
@@ -179,10 +243,10 @@ def speech_to_text():
     service_button = tk.Button(root, text="Service", command=lambda: onClickAction("IT"))
     service_button.grid(row=1, column=3, pady=20)
 
-    eng_button = tk.Button(root, text="English", command=lambda: changeLanguage("en-US"))
+    eng_button = tk.Button(root, text="English", command=lambda: changeLanguage("eng"))
     eng_button.grid(row=2, columnspan=2, pady=20)
     
-    hindi_button = tk.Button(root, text="Hindi", command=lambda: changeLanguage("hi-IN")) 
+    hindi_button = tk.Button(root, text="Hindi", command=lambda: changeLanguage("hin")) 
     hindi_button.grid(row=2, column=2, columnspan=2, pady=20)
 
     # Start the GUI event loop
