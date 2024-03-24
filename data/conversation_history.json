@@ -2,62 +2,20 @@
     {
         "User Information": {
             "Name": "Hare Krishna",
-            "Phone": "6861386",
-            "Address": "wale ka man"
-        }
-    },
-    {
-        "User Information": {
-            "Name": "Gandu",
-            "Phone": "12345 678999",
-            "Address": "Mumbai India"
-        }
-    },
-    {
-        "User Information": {
-            "Name": "Gandu",
-            "Phone": "123456789 10 11 12 13 14 15 16 17 18 19 20",
-            "Address": "Mumbai"
-        }
-    },
-    {
-        "User Information": {
-            "Name": "Hare Krishna",
-            "Phone": "jitne ka Baat 7776 861386",
-            "Address": "common Vasai"
-        }
-    },
-    {
-        "User Information": {
-            "Name": "",
-            "Phone": "7768 61386",
-            "Address": "Virar"
-        }
-    },
-    {
-        "User Information": {
-            "Name": "Hare Krishna",
-            "Phone": "7776 861386",
-            "Address": ""
-        }
-    },
-    {
-        "User Information": {
-            "Name": "mera naam Harikrishnan hai",
-            "Phone": "77768 6138 6",
-            "Address": "Wi-Fi common"
+            "Phone": "777686 1686",
+            "Address": "Vasai Borivali"
         }
     },
     {
         "IT Desk Questions": {
-            "What is the issue you are experiencing?": "laptop Fat Gaya bhai",
-            "When did the issue start?": "2 din pahle",
-            "Have you tried any troubleshooting steps?": "Nahin abhi tak To Nahin kiye",
-            "What is your computer's operating system?": "window",
-            "Any additional information you would like to provide?": "sorry window Nahin Khidki to"
+            "What is the issue you are experiencing?": "laptop is broken",
+            "When did the issue start?": "from past two days",
+            "Have you tried any troubleshooting steps?": "no not right now",
+            "What is your computer's operating system?": "it's Kali Linux",
+            "Any additional information you would like to provide?": "I wouldn't my Kali Linux operating system to Ubuntu"
         }
     },
     {
-        "Gemini LLM": "**Possible Laptop Issues:**\n\n* **Overheating:** High temperatures can cause performance issues and damage components.\n* **Malware infection:** Viruses and spyware can slow down the laptop and cause various problems.\n* **Hard drive failure:** A faulty hard drive can lead to data loss and system instability.\n* **RAM (memory) issues:** Insufficient or defective RAM can cause sluggish performance and crashes.\n* **Graphics card problems:** A faulty graphics card can result in display issues, corrupted graphics, and performance drops.\n* **Software conflicts:** Incompatibility or outdated software can cause errors and performance problems.\n* **Battery degradation:** Worn-out batteries can limit laptop usage and impact performance.\n* **Motherboard issues:** A malfunctioning motherboard can affect multiple components and cause severe performance issues.\n* **Overclocking:** Aggressive overclocking can push components beyond their limits, causing instability and performance degradation.\n* **Physical damage:** Dropping or damaging the laptop can lead to internal hardware problems.\n\n**Troubleshooting Tips:**\n\n* **Check for overheating:** Place the laptop on a flat surface and ensure proper airflow. Clean any dust or debris from vents.\n* **Run a malware scan:** Use an antivirus or anti-malware software to detect and remove potential threats.\n* **Test the hard drive:** Use built-in diagnostic tools or third-party software to check the health of the hard drive.\n* **Diagnose RAM issues:** Run a memory diagnostic test to identify any faulty RAM modules.\n* **Update graphics drivers:** Install the latest drivers for your graphics card.\n* **Resolve software conflicts:** Uninstall or update incompatible software and ensure all necessary drivers are installed.\n* **Test battery health:** Use built-in tools or third-party software to check battery performance.\n* **Seek professional repair:** For complex issues or physical damage, it's recommended to consult a qualified technician."
+        "Gemini LLM": "**Potential Issues:**\n\n**Hardware Issues:**\n\n* **Screen:** Cracked or broken screen\n* **Keyboard:** Non-functional keys or unresponsive touchpad\n* **Battery:** Not charging or holding a charge\n* **Power supply:** Broken or damaged cord\n* **Motherboard:** Electrical issues or component failure\n* **Cooling fan:** Overheating or noisy fan\n* **Hard drive:** Non-responsive or corrupted drive\n\n**Software Issues:**\n\n* **Operating system:** Crashes, freezes, or won't boot\n* **Applications:** Not opening, crashing, or experiencing errors\n* **Malware or viruses:** System performance issues or security risks\n* **Driver issues:** Compatibility problems or system malfunctions\n\n**Physical Damage:**\n\n* **Scratches or dents:** Cosmetic damage affecting aesthetics\n* **Water damage:** Liquid spills or moisture causing short circuits\n* **Impact damage:** Dropped or damaged laptop causing internal issues\n\n**Other Issues:**\n\n* **Slow performance:** General sluggishness or delays in response\n* **Connectivity problems:** Wi-Fi, Bluetooth, or Ethernet issues\n* **Audio problems:** No sound or distorted audio\n* **Overheating:** Excessive heat causing discomfort or system instability"
     }
 ]
