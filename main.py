@@ -9,6 +9,7 @@ from gtts import gTTS
 from googletrans import Translator
 import os
 import json
+import time
 
 MAIN_DOMAIN=""
 LANG=""
@@ -176,6 +177,8 @@ def speech_to_text():
         if LANG == "hin":
             hindi_op = translate_to_hindi(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
             generate_hindi_audio(hindi_op)
+            
+            time.sleep(4)  
             os.system("rm .\output.mp3")
         else:
             speak(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
@@ -186,6 +189,8 @@ def speech_to_text():
         if LANG == "hin":
             hindi_op = translate_to_hindi("Please answer the following questions.")
             generate_hindi_audio(hindi_op)
+
+            time.sleep(4)  
             os.system("rm .\output.mp3")
         else:
             speak("Please answer the following questions.")
