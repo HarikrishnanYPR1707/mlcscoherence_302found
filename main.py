@@ -124,7 +124,7 @@ def speech_to_text():
         if LANG == "hin":
             hindi_op = translate_to_hindi("Hello! Please provide your name.")
             generate_hindi_audio(hindi_op)
-            os.system("rm .\output.mp3")
+            os.system("rm ./output.mp3")
         else:
             speak("Hello! Please provide your name.")
             
@@ -141,7 +141,7 @@ def speech_to_text():
         if LANG == "hin":
             hindi_op = translate_to_hindi("Great! Now, please provide your phone number.")
             generate_hindi_audio(hindi_op)
-            os.system("rm .\output.mp3")
+            os.system("rm ./output.mp3")
         else:
             speak("Great! Now, please provide your phone number.")
             
@@ -157,7 +157,7 @@ def speech_to_text():
         if LANG == "hin":
             hindi_op = translate_to_hindi("Thank you! Finally, please provide your address.")
             generate_hindi_audio(hindi_op)
-            os.system("rm .\output.mp3")
+            os.system("rm ./output.mp3")
         else:
             speak("Thank you! Finally, please provide your address.")
             
@@ -179,7 +179,7 @@ def speech_to_text():
             generate_hindi_audio(hindi_op)
             
             time.sleep(4)  
-            os.system("rm .\output.mp3")
+            os.system("rm ./output.mp3")
         else:
             speak(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
 
@@ -191,7 +191,7 @@ def speech_to_text():
             generate_hindi_audio(hindi_op)
 
             time.sleep(4)  
-            os.system("rm .\output.mp3")
+            os.system("rm ./output.mp3")
         else:
             speak("Please answer the following questions.")
 
@@ -201,7 +201,7 @@ def speech_to_text():
             if LANG == "hin":
                 hindi_op = translate_to_hindi(question)
                 generate_hindi_audio(hindi_op)
-                os.system("rm .\output.mp3")
+                os.system("rm ./output.mp3")
             else:
                 speak(question)
             output_text.insert(tk.END, "ASSISTANT: " + question + "\n\n")
