@@ -91,9 +91,9 @@ def speech_to_text():
         }
 
         # Collect user information with Gemini LLM
-        speak("Hello! Please provide your name.")
         output_text.insert(tk.END, "Assistant: " + "Hello! Please provide your name." + "\n\n")
         output_text.see(tk.END)
+        speak("Hello! Please provide your name.")
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "User: " + user_input + "\n\n")
@@ -101,18 +101,18 @@ def speech_to_text():
             user_info["Name"] = user_input
             
 
-        speak("Great! Now, please provide your phone number.")
         output_text.insert(tk.END, "Assistant: " + "Great! Now, please provide your phone number." + "\n\n")
         output_text.see(tk.END)
+        speak("Great! Now, please provide your phone number.")
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "User: " + user_input + "\n\n")
             output_text.see(tk.END)
             user_info["Phone"] = user_input
 
-        speak("Thank you! Finally, please provide your address.")
         output_text.insert(tk.END, "Assistant: " + "Thank you! Finally, please provide your address." + "\n\n")
         output_text.see(tk.END)
+        speak("Thank you! Finally, please provide your address.")
         user_input = convert_speech_to_text()
         if user_input is not None:
             output_text.insert(tk.END, "User: " + user_input + "\n\n")
@@ -123,12 +123,13 @@ def speech_to_text():
         update_dataset({"User Information": user_info})
 
         # Proceed to Gemini LLM for IT desk questions
-        speak("Thank you for providing your information. Now, let's proceed to the IT desk questionnaire.")
         output_text.insert(tk.END, "Assistant: " + "Thank you for providing your information. Now, let's proceed to the IT desk questionnaire." + "\n\n")
         output_text.see(tk.END)
-        speak("Please answer the following questions.")
+        speak("Thank you for providing your information. Now, let's proceed to the IT desk questionnaire.")
+        
         output_text.insert(tk.END, "Assistant: " + "Please answer the following questions." + "\n\n")
         output_text.see(tk.END)
+        speak("Please answer the following questions.")
 
         it_desk_answers = {}
         print(MAIN_DOMAIN)
