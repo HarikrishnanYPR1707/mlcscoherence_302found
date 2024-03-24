@@ -17,5 +17,31 @@
     },
     {
         "Gemini LLM": "**Potential Issues:**\n\n**Hardware Issues:**\n\n* **Screen:** Cracked or broken screen\n* **Keyboard:** Non-functional keys or unresponsive touchpad\n* **Battery:** Not charging or holding a charge\n* **Power supply:** Broken or damaged cord\n* **Motherboard:** Electrical issues or component failure\n* **Cooling fan:** Overheating or noisy fan\n* **Hard drive:** Non-responsive or corrupted drive\n\n**Software Issues:**\n\n* **Operating system:** Crashes, freezes, or won't boot\n* **Applications:** Not opening, crashing, or experiencing errors\n* **Malware or viruses:** System performance issues or security risks\n* **Driver issues:** Compatibility problems or system malfunctions\n\n**Physical Damage:**\n\n* **Scratches or dents:** Cosmetic damage affecting aesthetics\n* **Water damage:** Liquid spills or moisture causing short circuits\n* **Impact damage:** Dropped or damaged laptop causing internal issues\n\n**Other Issues:**\n\n* **Slow performance:** General sluggishness or delays in response\n* **Connectivity problems:** Wi-Fi, Bluetooth, or Ethernet issues\n* **Audio problems:** No sound or distorted audio\n* **Overheating:** Excessive heat causing discomfort or system instability"
+    },
+    {
+        "User Information": {
+            "Name": "Tanishq",
+            "Phone": "77768 61386",
+            "Address": "Vasai Gaman"
+        }
+    },
+    {
+        "User Information": {
+            "Name": "Tanishq",
+            "Phone": "77768 62212",
+            "Address": "safala Kandivali"
+        }
+    },
+    {
+        "IT Desk Questions": {
+            "What is the issue you are experiencing?": "my laptop strips display is gone",
+            "When did the issue start?": "two days ago",
+            "Have you tried any troubleshooting steps?": "asset right to pop open my screen",
+            "What is your computer's operating system?": "it is Arch Linux",
+            "Any additional information you would like to provide?": "yes I bought at my Arch Linux to Kali Linux"
+        }
+    },
+    {
+        "Gemini LLM": "**Troubleshooting a Laptop with No Display**\n\n**1. Check the Power Connection:**\n\n* Ensure the laptop is plugged into a power source and the charger is securely connected.\n* Try using a different power outlet.\n\n**2. Check the Display Connection:**\n\n* If using an external monitor, make sure it's correctly connected to the laptop's video port (e.g., HDMI, DisplayPort).\n* If applicable, try connecting the laptop to a different external monitor.\n\n**3. Inspect the Display Panel:**\n\n* Observe the laptop screen closely for any physical damage, such as cracks or scratches.\n* Gently press on different areas of the screen to see if it resolves the issue.\n\n**4. Check the Graphics Card:**\n\n* If possible, try connecting an external graphics card.\n* If the display works with the external GPU, the issue may be with the laptop's integrated graphics card.\n\n**5. Perform a Hard Reset:**\n\n* Hold down the power button for 10-15 seconds until the laptop turns off.\n* Release the power button and wait a few minutes.\n* Press the power button to restart the laptop.\n\n**6. Update Display Drivers:**\n\n* Access the Device Manager (Windows) or System Preferences (macOS).\n* Locate the Display Adapter section and right-click on the graphics card driver.\n* Select \"Update driver\" and follow the on-screen instructions.\n\n**7. Boot in Safe Mode:**\n\n* Start the laptop in Safe Mode to determine if a software issue is causing the problem.\n* For Windows: Press and hold the \"Shift\" key while clicking on the \"Restart\" option in the Start menu.\n* For macOS: Hold down the \"Command + R\" keys while starting the laptop.\n\n**8. Boot from an External Device:**\n\n* Create a bootable USB or DVD using a recovery image or operating system installation media.\n* Insert the bootable device and boot from it.\n* If the display works in the external environment, the issue may be with the laptop's installed operating system or hardware configuration.\n\n**Additional Considerations:**\n\n* If the laptop has a detachable display, check if the display cable is securely connected to the laptop body.\n* In some cases, a faulty inverter or backlight can cause display issues. This requires professional repair.\n* If you've tried all the above steps and the issue persists, contact the laptop manufacturer or an authorized repair service."
     }
 ]

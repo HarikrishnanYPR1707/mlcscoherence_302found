@@ -91,31 +91,31 @@ def speech_to_text():
         }
 
         # Collect user information with Gemini LLM
-        output_text.insert(tk.END, "Assistant: " + "Hello! Please provide your name." + "\n\n")
+        output_text.insert(tk.END , "ASSISTANT: " + "Hello! Please provide your name." + "\n\n")
         output_text.see(tk.END)
         speak("Hello! Please provide your name.")
         user_input = convert_speech_to_text()
         if user_input is not None:
-            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.insert(tk.END, "USER: " + user_input + "\n\n")
             output_text.see(tk.END)
             user_info["Name"] = user_input
             
 
-        output_text.insert(tk.END, "Assistant: " + "Great! Now, please provide your phone number." + "\n\n")
+        output_text.insert(tk.END, "ASSISTANT: " + "Great! Now, please provide your phone number." + "\n\n")
         output_text.see(tk.END)
         speak("Great! Now, please provide your phone number.")
         user_input = convert_speech_to_text()
         if user_input is not None:
-            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.insert(tk.END, "USER: " + user_input + "\n\n")
             output_text.see(tk.END)
             user_info["Phone"] = user_input
 
-        output_text.insert(tk.END, "Assistant: " + "Thank you! Finally, please provide your address." + "\n\n")
+        output_text.insert(tk.END, "ASSISTANT: " + "Thank you! Finally, please provide your address." + "\n\n")
         output_text.see(tk.END)
         speak("Thank you! Finally, please provide your address.")
         user_input = convert_speech_to_text()
         if user_input is not None:
-            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.insert(tk.END, "USER: " + user_input + "\n\n")
             output_text.see(tk.END)
             user_info["Address"] = user_input
 
@@ -123,11 +123,11 @@ def speech_to_text():
         update_dataset({"User Information": user_info})
 
         # Proceed to Gemini LLM for IT desk questions
-        output_text.insert(tk.END, "Assistant: " + "Thank you for providing your information. Now, let's proceed to the IT desk questionnaire." + "\n\n")
+        output_text.insert(tk.END, "ASSISTANT: " + "Thank you for providing your information. Now, let's proceed to the IT desk questionnaire." + "\n\n")
         output_text.see(tk.END)
-        speak("Thank you for providing your information. Now, let's proceed to the IT desk questionnaire.")
-        
-        output_text.insert(tk.END, "Assistant: " + "Please answer the following questions." + "\n\n")
+        speak(f"Thank you for providing your information. Now, let's proceed to the {MAIN_DOMAIN} questionnaire.")
+
+        output_text.insert(tk.END, "ASSISTANT: " + "Please answer the following questions." + "\n\n")
         output_text.see(tk.END)
         speak("Please answer the following questions.")
 
@@ -135,10 +135,10 @@ def speech_to_text():
         print(MAIN_DOMAIN)
         for question in domainData[MAIN_DOMAIN]:
             speak(question)
-            output_text.insert(tk.END, "Assistant: " + question + "\n\n")
+            output_text.insert(tk.END, "ASSISTANT: " + question + "\n\n")
             output_text.see(tk.END)
             user_input = convert_speech_to_text()
-            output_text.insert(tk.END, "User: " + user_input + "\n\n")
+            output_text.insert(tk.END, "USER: " + user_input + "\n\n")
             output_text.see(tk.END)
             if user_input is not None:
                 it_desk_answers[question] = user_input
